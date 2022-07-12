@@ -20,12 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['namespace' => 'Main'], function () {
-    Route::get('/', [App\Http\Controllers\Main\IndexController::class, '__invoke']);
+    Route::get('/', [App\Http\Controllers\Main\IndexController::class, '__invoke'])->name('main.index');
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::group(['namespace' => 'Main'], function () {
-        Route::get('/', [App\Http\Controllers\Admin\Main\IndexController::class, '__invoke']);
+        Route::get('/', [App\Http\Controllers\Admin\Main\IndexController::class, '__invoke'])->name('admin.main.index');
     });
 });
 
